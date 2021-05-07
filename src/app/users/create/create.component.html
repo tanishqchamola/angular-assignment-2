@@ -1,0 +1,120 @@
+<div class="row justify-content-around">
+  <div class="d-none d-lg-block col-5">
+    <img src="https://blush.design/api/download?shareUri=V6HKg90Ee&c=Bottom_0%7Effa434_Hair_0%7E4a312c_Skin_0%7Ed4a181_Top_0%7E89c5cc&w=500&h=500&fm=png" alt="">
+  </div>
+  <div class="col-12 col-md-8 col-lg-5">
+    
+    <!-- Modal -->
+    <div class="modal fade" id="previewModal" tabindex="-1" role="dialog" aria-labelledby="previewModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="text-center py-2">
+              <img [src]="createUserForm.value.photo" class="rounded-circle" height="100">
+            </div>
+            <table class="table table-bordered">
+              <tr>
+                <td scope="row">Full Name</td>
+                <td>{{createUserForm.value.fullName}}</td>
+              </tr>
+              <tr>
+                <td scope="row">Gender</td>
+                <td>{{createUserForm.value.gender}}</td>
+              </tr>
+              <tr>
+                <td scope="row">Email</td>
+                <td>{{createUserForm.value.email}}</td>
+              </tr>
+              <tr>
+                <td scope="row">Mobile</td>
+                <td>{{createUserForm.value.mobile}}</td>
+              </tr>
+              <tr>
+                <td scope="row">Category</td>
+                <td>{{createUserForm.value.category}}</td>
+              </tr>
+              <tr>
+                <td scope="row">Technologies</td>
+                <td>{{createUserForm.value.technologies}}</td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-secondary w-25" data-dismiss="modal">Cancel</button>
+            <button (click)=onSubmit() data-dismiss="modal" class="btn btn-success w-50">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <form [formGroup]="createUserForm" id="createUser">
+      <div class="form-group">
+        <input type="text" class="form-control" name="fullName" id="fullName" placeholder="Full Name" formControlName="fullName">
+      </div>
+    
+      <div class="form-group">
+        <label class="title-label mr-3">Gender: </label>
+        <div class="form-check form-check-inline">
+          <input type="radio" class="form-check-input" name="gender" id="male" value="Male" formControlName="gender">
+          <label class="form-check-label" for="male">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="radio" class="form-check-input" name="gender" id="female" value="Female" formControlName="gender">
+          <label class="form-check-label" for="male">Female</label>
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <input type="email" class="form-control" id="email" placeholder="Email Address" formControlName="email">
+      </div>
+    
+      <div class="form-group">
+        <input type="text" class="form-control" id="mobile" placeholder="Mobile Number" formControlName="mobile">
+      </div>
+    
+      <div class="form-group">
+        <select class="form-control-select form-control" name="category" id="category" formControlName="category">
+          <option value="" disabled selected>Select Category</option>
+          <option value="General">General</option>
+          <option value="SC">SC</option>
+          <option value="ST">ST</option>
+          <option value="OBC">OBC</option>
+        </select>
+      </div>
+    
+      <div class="form-group">
+        <label class="title-label mr-3">Technologies: </label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="C" id="C" (change)="changeTechnologies($event)">
+          <label class="form-check-label" for="C">C</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="C++" id="C++" (change)="changeTechnologies($event)">
+          <label class="form-check-label" for="C++">C++</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="Python" id="python" (change)="changeTechnologies($event)">
+          <label class="form-check-label" for="python">Python</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="Javascript" id="javascript" (change)="changeTechnologies($event)">
+          <label class="form-check-label" for="javascript">Javascript</label>
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <!-- <label class="title-label mr-3" for="photo">Photo:</label> -->
+        <label class="btn btn-primary w-100">
+          <input type="file" style="display: none;" id="photo" accept="image/png, image/jpeg, image/jpg" (change)="imgToBase64()">Upload Picture
+        </label>
+        
+      </div>
+    
+      <button type="reset" class="btn btn-outline-danger w-25">Reset</button>
+      <button type="button" data-toggle="modal" data-target="#previewModal" [disabled]="!createUserForm.valid" class="btn btn-success float-right w-50">Preview</button>
+      
+    </form>
+    
+  </div>
+</div>

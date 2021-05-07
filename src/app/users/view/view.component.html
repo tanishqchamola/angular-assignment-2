@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-12">
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="thead-primary">
+                    <tr>
+                        <th scope="col" *ngFor="let head of thead" class="text-center">{{head}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users" class="text-center">
+                        <td>{{user.fullName}}</td>
+                        <td><img [src]="user.photo" height="100"></td>
+                        <td>{{user.gender}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.mobile}}</td>
+                        <td>{{user.category}}</td>
+                        <td>{{user.technologies}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

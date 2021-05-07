@@ -1,0 +1,20 @@
+.thead-primary{
+    background-color: var(--primary-color);
+    color: white;
+}
+
+th {
+    border: none !important;
+}
+
+th, td {
+    vertical-align: middle;
+}
+
+.table-responsive{
+    border-radius: 10px;
+}
+
+img{
+    border-radius: 99vh;
+}

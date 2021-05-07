@@ -1,0 +1,21 @@
+.nav-link{
+    color: #000 !important;
+}
+.nav-link:hover{
+    color: var(--primary-color) !important;
+}
+.nav-item{
+    padding: 0 2rem;
+}
+
+.btn {
+    color: white;
+    font-weight: 500;
+    text-transform: uppercase;
+    background-color: var(--primary-color);
+}
+
+.is-active{
+    color: var(--primary-color) !important;
+    font-weight: 500;
+}
